@@ -2,6 +2,8 @@
 
 
 //game in console almost works need to fix it//
+//need to put things in objects - right now everything is just floating around, mostly working-ish
+//except this one thing where the codeToBreak is being changed to nulls????
 //need to start writing jQuery//
 //need to get jQuery and game logic to play nice//
 
@@ -14,7 +16,7 @@ var playerPlays = [];
 var codeToBreak=[];
 
 //for testing
-codeToBreak =["orange", "yellow", "orange", "violet"];
+//codeToBreak =["orange", "yellow", "orange", "violet"];
 
 //generates the code to break
 var codeMaker = function (){
@@ -57,8 +59,17 @@ var testCodeCCCP = function(testCodeBreak){
 //****NEW**** CCWP check **** Thanks Dan DiIorio for the assistance!!!!! ****
 var testCodeCCWP = function (testCodeBreak){
   var ccwp = 0;
-  var checkFor = testCodeBreak;
-  var checkAgainst = codeToBreak;
+//need to generate new arrays or else the original array will be manipulated if doing
+// checkFor =codeToBreak
+
+  var checkFor = [];
+  var checkAgainst = [];
+
+  for (var i = 0; i < testCodeBreak.length; i++) {
+    checkFor.push(testCodeBreak[i]);
+    checkAgainst.push(codeToBreak[i]);
+  }
+
   var removed=[];
 //remove CCCPs
  for (var k =0; k< checkFor.length; k++){
@@ -75,6 +86,7 @@ var testCodeCCWP = function (testCodeBreak){
             checkFor[i] = null;
             checkAgainst[j] = null;
             ccwp++;
+          //  console.log(codeToBreak + "is something happening to codeToBreak in here?") resolved by creating new arrays rather than just assigning them
           }
         }
       }
@@ -92,7 +104,7 @@ var testCodeCCWP = function (testCodeBreak){
    //for testing:
    console.log(codeToBreak);
    //check round number - must be less than 10 else game is over.
-   while (round < 2 || cccp === 4){
+   while (round < 2 || cccp === 4){ //is this supposed to be !==4 ????
      var cccp=0;
      var ccwp=0;
      // ask for input
@@ -131,11 +143,8 @@ var testCodeCCWP = function (testCodeBreak){
 //       //both start at 0, j loops first, then i increments
 //       console.log ("the value of i is "+ i +
 //       " the value of j is " + j);
-// }}}
+// }}};
 
-
-//for console gameplay testing
-//var testCodeBreak = prompt("testCodeBreak the colors in an array, don't forget to put quotes around each color and commas in between");
 
 //an object for the colors?
 //do I even need this?
@@ -158,6 +167,9 @@ $("#start").click(function(event) {
 //start game
 //allow user to enter name (this is mostly for 2 player game)
 //computer chooses an array
+
+//The folowing step should serve as a template for other gameplay...maybe?
+//display the colors in the divs
 //those divs stay hidden
 ///but go in the computer row
 
