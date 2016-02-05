@@ -140,3 +140,10 @@ var testCodeCCWP = function (testCodeBreak){
 
 
 //////////////////jQuery/////////////////////////
+
+$("#start").click(function(event) {
+
+      alert("button works!");
+      playGame();
+
+});
