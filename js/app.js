@@ -1,5 +1,13 @@
 //alert('js app linked!');
 
+
+//game in console almost works need to fix it//
+//need to put things in objects - right now everything is just floating around, mostly working-ish
+//except this one thing where the codeToBreak is being changed to nulls????
+//need to start writing jQuery//
+//need to get jQuery and game logic to play nice//
+
+
 //an array of colors
 var colors = ['red','orange','yellow','green','blue', 'violet'];
 
@@ -69,6 +77,7 @@ var testCodeCCWP = function (testCodeBreak){
             checkFor[i] = null;
             checkAgainst[j] = null;
             ccwp++;
+            console.log(codeToBreak + "is something happening to codeToBreak in here?")
           }
         }
       }
@@ -84,7 +93,7 @@ var testCodeCCWP = function (testCodeBreak){
    // generate code only reset at very begining of turn
    codeMaker();
    //for testing:
-   console.log(codeToBreak);
+   console.log(codeToBreak + " starting codeToBreak");
    //check round number - must be less than 10 else game is over.
    while (round < 2 || cccp === 4){
      var cccp=0;
@@ -125,11 +134,8 @@ var testCodeCCWP = function (testCodeBreak){
 //       //both start at 0, j loops first, then i increments
 //       console.log ("the value of i is "+ i +
 //       " the value of j is " + j);
-// }}}
+// }}};
 
-
-//for console gameplay testing
-//var testCodeBreak = prompt("testCodeBreak the colors in an array, don't forget to put quotes around each color and commas in between");
 
 //an object for the colors?
 //do I even need this?
@@ -147,3 +153,87 @@ $("#start").click(function(event) {
       playGame();
 
 });
+
+
+//start game
+//allow user to enter name (this is mostly for 2 player game)
+//computer chooses an array
+
+//The folowing step should serve as a template for other gameplay...maybe?
+//display the colors in the divs
+//those divs stay hidden
+///but go in the computer row
+
+////////GOAL: get divs to change colors//////////
+//be able to click in the peg-box on a color and grab the color id
+//then when clicking on a div on the board, that div will change colors
+
+//worry about gameplay a little later...
+
+//wondering- what will happen if same box is clicked
+//wondering-what should happen if same box is clicked
+//would be cool if you could change the color- if that is the case the old id would have to be removed or else multiple ones could be stored? maybe?
+
+////////GOAL: control which row can be played//////////
+//neccessary to create the correct array
+
+////////GOAL: get an array of colors from clicks//////////
+
+
+//player makes play in first row only
+//activate first row for first play
+//other rows should be unavailable?? somehow?
+//each play goes to an array
+//once each play is in the array
+
+//wondering how to put the pegs in each positon of the array to be compared
+//should it just be left to right -the end?
+//that might be the way it has to start
+
+//otherwise create if elses (or switch?) to determine placement of postion in array
+//by using splice????
+//maybe the array has to be not empty but full of nulls? and replace the position???
+
+//wondering
+//make the array 5 long and the 5th thing is a submit of some sort
+//check the array for the submit if...submit true then do next stuff???
+//pop that submit off before comparison
+
+////////GOAL: get an array to be properly compared to computer play///////
+//how to create the comparision between clicks array to computer array
+
+////////GOAL: update cccp and ccwp divs//////////
+//self explainitory, there will be values and they need to go in the divs
+
+////////GOAL: update and display round//////////
+
+////////GOAL: create scoring system and display current score//////////
+
+////////GOAL: create win state to display & end round //////////
+//some sort of display message
+//freeze the rest of the board
+//make sure score is updated/set
+//display the computer play
+
+////////GOAL: get next line available for play//////////
+//lock out played line from being played, and somehow follow above steps to get
+
+
+////////GOAL: lose state when out of turns //////////
+//display computer playe
+//an message of you lost?
+//allow player to start again
+
+////////GOAL: start again //////////
+//clear previous board and data
+//no moves available onl start button working
+//go to start gameplay
+
+////////GOAL: change reset to give up //////////
+//if give up show computer hand
+//no more clicks, no more anything- only start button available
+
+////////GOAL: two player game //////////
+//add a second player
+//set up some game play that would allow each player to play 1-3 rounds each, tally their scores and then select the winner
+//other aspects of gameplay should be the same
