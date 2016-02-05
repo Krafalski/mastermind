@@ -16,7 +16,7 @@ var playerPlays = [];
 var codeToBreak=[];
 
 //for testing
-codeToBreak =["orange", "yellow", "orange", "violet"];
+//codeToBreak =["orange", "yellow", "orange", "violet"];
 
 //generates the code to break
 var codeMaker = function (){
@@ -59,8 +59,17 @@ var testCodeCCCP = function(testCodeBreak){
 //****NEW**** CCWP check **** Thanks Dan DiIorio for the assistance!!!!! ****
 var testCodeCCWP = function (testCodeBreak){
   var ccwp = 0;
-  var checkFor = testCodeBreak;
-  var checkAgainst = codeToBreak;
+//need to generate new arrays or else the original array will be manipulated if doing
+// checkFor =codeToBreak
+
+  var checkFor = [];
+  var checkAgainst = [];
+
+  for (var i = 0; i < testCodeBreak.length; i++) {
+    checkFor.push(testCodeBreak[i]);
+    checkAgainst.push(codeToBreak[i]);
+  }
+
   var removed=[];
 //remove CCCPs
  for (var k =0; k< checkFor.length; k++){
@@ -77,7 +86,7 @@ var testCodeCCWP = function (testCodeBreak){
             checkFor[i] = null;
             checkAgainst[j] = null;
             ccwp++;
-            console.log(codeToBreak + "is something happening to codeToBreak in here?")
+          //  console.log(codeToBreak + "is something happening to codeToBreak in here?") resolved by creating new arrays rather than just assigning them
           }
         }
       }
@@ -93,9 +102,9 @@ var testCodeCCWP = function (testCodeBreak){
    // generate code only reset at very begining of turn
    codeMaker();
    //for testing:
-   console.log(codeToBreak + " starting codeToBreak");
+   console.log(codeToBreak);
    //check round number - must be less than 10 else game is over.
-   while (round < 2 || cccp === 4){
+   while (round < 2 || cccp === 4){ //is this supposed to be !==4 ????
      var cccp=0;
      var ccwp=0;
      // ask for input
