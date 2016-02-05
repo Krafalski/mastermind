@@ -52,6 +52,7 @@
   - weird problem with win state, probably scoping, need to iron out
   - work on html css - finish bare bones and make it not extremely painful to look at
   - start working on jQuery - html js interaction
+  - create an outline in js about what needs to be done for jQuery interaction
   - see if today is the day to finally make sure things line up with style guide
   - update issues that align with user stories on github
   - update this schedule
