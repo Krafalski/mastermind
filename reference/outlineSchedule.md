@@ -35,23 +35,33 @@
  ##### February 4, 2016 : Thursday
  - class
  - work on js & alternate to css/html when need break from js
- - read style guide, take some notes and edit current code before writing new code- try to create template of good style with a little bit of code and use that as a reference going forward
- - work on html
-
- - update issues that align with user stories on github
- - update this schedule
+ - js cccp✅ , ccwp done ✅,create meaningful console.log for cccp ✅and ccwp ✅, create start game ✅, create win state✅ , create lose state ✅, create loop for plays until win or lose state✅.🔀 ISSUE- must win on first round or else codeToBreak is changed to [null,null] - this shouldn't be changing. Will change things to fit into objects and constructors more/better to see if this is a scope issue that can be fixed. On today's pass there was nothing obvious why this variable would change. But also stared at the code for many hours and may be blind to something obvious for the day 🔀 try again tomorrow
+ - line 89 - change to 10 rounds at some point...🔀when ready to pay the game all the way through, not this many rounds when trying to get it to work...timeline unknown
+ - otherwise, leave js alone for today and work on HTML and css✅
+ - read style guide, take some notes and edit current code before writing new code- try to create template of good style with a little bit of code and use that as a reference going forward🔀scared to touch js when feeling this tired, will spend time stuying up on jquery do this 🔀tomorrow
+ - work on html --> create all divs and elements 🔀roughly 70% created 🔀try again tomorrow
+ - work on css --> create basic structure with maybe some colors 🔀 roughly 30% done 🔀 try again tomorrow
+ - update issues that align with user stories on github. No issues resolved yet🔀 try again tomorrow
+ - update this schedule✅
+ - git merge conflict - must be resolved before committing 🔀tomorrow
 
 
  ##### February 5, 2016 : Friday
   - class
   - work on js (should be finishing the main/most important/MVP - minimum viable product)
+  - weird problem with win state, probably scoping, need to iron out
+  - work on html css - finish bare bones and make it not extremely painful to look at
   - start working on jQuery - html js interaction
+  - see if today is the day to finally make sure things line up with style guide
   - update issues that align with user stories on github
+  - update this schedule
 
 
  ##### February 6, 2016 : Saturday
   - study jQuery and test some stuff out then try to apply it
+  - hard to gauge where project will be by this day ...leave lots of time for whatever, check to see if anyone is going to GA to work together
   - update issues that align with user stories on github
+  - update this schedule
 
 ##### February 7, 2016 : Sunday
  - stop coding at 8pm and submit project

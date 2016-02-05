@@ -5,10 +5,138 @@
     <title>Mastermind</title>
      <link rel="stylesheet" href="css/normalize.css">
       <link rel="stylesheet" href="css/styles.css">
+      <link href='https://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+      <script src="js/jquery-2.2.0.min.js"></script>
   </head>
   <body>
+    <header><h1>Mastermind</h1></header>
+    <!-- container div to hold EVERYTHING! -->
+    <!-- margin 0 auto; -->
+    <!-- 980px start  -->
+    <!-- caveat: be sure to consider padding and margins -->
+  <div id="container">
+      <div id="left">
+        <div> <h2 id="cccp"> Number of pegs that are the correct color and are in the wrong position</h2>
+      </div>
+        <div> <h2 id="ccwp"> Number of pegs that are the correct color,but are in the wrong position</h2>
+        </div>
+      </div>
+
+      <div id="center">
+        <table>
+          <tr id="codeToBreak">
+            <td></td>
+            <td></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="1">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="2">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="3">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="4">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="5">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="6">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="7">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="8">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="9">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+          <tr id="10">
+            <td id="cccp">cccp</td>
+            <td id="ccwp">ccwp</td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+          </tr>
+        </table>
+      </div>
+
+      <div id="right">
+        <button id="start">Start</button>
+        <button id="reset">Reset</button>
+        <div id="peg-box">
+          <tr id="peg-box">
+            <td><div class="color" id="red"></div></td>
+            <td><div class="color" id="orange"></div></td>
+            <td><div class="color" id="yellow"></div></td>
+            <td><div class="color" id="green"></div></td>
+            <td><div class="color" id="blue"></div></td>
+            <td><div class="color" id="violet"></div></td>
+            <td><div class="color" id="blank"></div></td>
+          </tr>
+        </table>
+        </div>
+        <div></div>
+      </div>
+  </div>
+
+
+    <!-- user info still in the container but separate div -->
 
 <script src="js/app.js"></script>
-<script src="js/jquery-2.2.0.min.js"></script>
   </body>
 </html>
