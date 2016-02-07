@@ -3,21 +3,12 @@
 
 //game in console almost works need to fix it//
 //need to put things in objects - right now everything is just floating around, mostly working-ish
-//except this one thing where the codeToBreak is being changed to nulls????
 //need to start writing jQuery//
 //need to get jQuery and game logic to play nice//
 
-// $(document).ready(function() {
-//   var $pegs = $('.pegs');
-//   for loop
-//   $pegs.eq(i).on('click', function(event) {
-//     event.classList[0]
-//     // when clicked needs to store the color (which is on the class)
-//     // when a peg is clicked change that to the color above
-//   })
-//
-//
-// })
+
+//moved jQuery to separate document so that the game can be played in the console
+
 //an array of colors
 var colors = ['red','orange','yellow','green','blue', 'violet'];
 
@@ -48,7 +39,6 @@ var testCodeBreak =  ["yellow", "orange", "orange", "blue"];
 
 //tests the testCodeBreak against the codeToBreak
 //CCCP -correct color, correct position
-//how to test, rund codeMaker(), then testCodeCCP(testCodeBreak)
 var testCodeCCCP = function(testCodeBreak){
    var cccp = 0;
    //console.log(testCodeBreak + " this is what is getting passed into the function ")
@@ -70,9 +60,7 @@ var testCodeCCCP = function(testCodeBreak){
 //****NEW**** CCWP check **** Thanks Dan DiIorio for the assistance!!!!! ****
 var testCodeCCWP = function (testCodeBreak){
   var ccwp = 0;
-//need to generate new arrays or else the original array will be manipulated if doing
-// checkFor =codeToBreak
-
+//need to generate new arrays or else the original array will be manipulated as well
   var checkFor = [];
   var checkAgainst = [];
 
@@ -102,7 +90,6 @@ var testCodeCCWP = function (testCodeBreak){
         }
       }
     }
-     //console.log (ccwp +" correct color, wrong position");
      return ccwp;
 }
 
@@ -173,9 +160,9 @@ function holdMe (){
 // }}};
 
 
-//an object for the colors?
+//an object for the colors...object litral for game play
+//was testing the pieces...maybe should have built the objects first and tested the pieces within.
+//out of time to 
 //do I even need this?
 //nothing is happening to these...
 //or does it?
-
-//need to draw out the flow on very very large paper
