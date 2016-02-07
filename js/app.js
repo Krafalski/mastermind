@@ -1,174 +1,147 @@
-//alert('js app linked!');
-
-
-//game in console almost works need to fix it//
-//need to put things in objects - right now everything is just floating around, mostly working-ish
-//except this one thing where the codeToBreak is being changed to nulls????
-//need to start writing jQuery//
-//need to get jQuery and game logic to play nice//
-
-
-//an array of colors
-var colors = ['red','orange','yellow','green','blue', 'violet'];
-
-//after each play, each play will be added as an array
-var playerPlays = [];
-var codeToBreak=[];
-
-//for testing
-//codeToBreak =["orange", "yellow", "orange", "violet"];
-
-//generates the code to break
-var codeMaker = function (){
-  codeToBreak=[];
-  var colorChoice;
-  for (var i=0; i<4; i++){
-  colorChoice= Math.floor(Math.random()*6);
-  //console.log(colorChoice);
-  codeToBreak.push(colors[colorChoice]);
-  //console.log(colors[colorChoice])
-  }
- //console.log(codeToBreak);
- return codeToBreak;
-};
-
-//default testCodeBreak - for testing
-var testCodeBreak =  ["yellow", "orange", "orange", "blue"];
-
-//tests the testCodeBreak against the codeToBreak
-//CCCP -correct color, correct position
-//how to test, rund codeMaker(), then testCodeCCP(testCodeBreak)
-var testCodeCCCP = function(testCodeBreak){
-   var cccp = 0;
-   //console.log(testCodeBreak + " this is what is getting passed into the function ")
-   var testIt = testCodeBreak;
-   //console.log (testIt + " value of testIt")
-   for (var q = 0; q < 4; q++){
-     //change default testCodeBreak to real testCodeBreak later
-    //  console.log (testCodeBreak[q] +
-    //  " testCodeBreak "+ codeToBreak[q] + " code to break");
-     if ( testIt[q] === codeToBreak[q]){
-       cccp=cccp+1;
-     }
-   }
-   //console.log ( cccp + " correct color, correct position");
-   return cccp;
-}
-
-
-//****NEW**** CCWP check **** Thanks Dan DiIorio for the assistance!!!!! ****
-var testCodeCCWP = function (testCodeBreak){
-  var ccwp = 0;
-//need to generate new arrays or else the original array will be manipulated if doing
-// checkFor =codeToBreak
-
-  var checkFor = [];
-  var checkAgainst = [];
-
-  for (var i = 0; i < testCodeBreak.length; i++) {
-    checkFor.push(testCodeBreak[i]);
-    checkAgainst.push(codeToBreak[i]);
-  }
-
-  var removed=[];
-//remove CCCPs
- for (var k =0; k< checkFor.length; k++){
-   if (checkFor[k]===checkAgainst[k]){
-     removed = checkFor.splice(k,1);
-     removed = checkAgainst.splice(k,1);
-   }
- }
-//test ccwp now:
-    for (var i=0; i < checkFor.length; i++){
-      for (var j=0; j < checkAgainst.length; j++){
-        if ((checkFor[i] !== null) && (checkAgainst[j] !== null) && (i !== j)){
-          if (checkFor[i] === checkAgainst[j]){
-            checkFor[i] = null;
-            checkAgainst[j] = null;
-            ccwp++;
-          //  console.log(codeToBreak + "is something happening to codeToBreak in here?") resolved by creating new arrays rather than just assigning them
-          }
-        }
-      }
-    }
-     //console.log (ccwp +" correct color, wrong position");
-     return ccwp;
-}
-
-//play game
- var playGame = function (){
-   var round = 0; //up to 10
-   //clear stuffs from previous round
-   // generate code only reset at very begining of turn
-   codeMaker();
-   //for testing:
-   console.log(codeToBreak);
-   //check round number - must be less than 10 else game is over.
-   while (round < 2 || cccp === 4){ //is this supposed to be !==4 ????
-     var cccp=0;
-     var ccwp=0;
-     // ask for input
-   //input version one- type array perfectly - returns it as a string...try version two
-   //var testCodeBreak = prompt ("enter your color array") - does not work in console
-   //input version two - enter one string at a time for a max of four to test - this will become clearer if I need this when I get to jQuery
-   //needs to reset every turn
-   var testCodeBreak = [];
-   while (testCodeBreak.length < 4){
-     var grabInput = "";
-     grabInput = prompt("give me a color: red, orange, yellow, green, blue, or violet");
-     testCodeBreak.push(grabInput);
-   }
-   console.log (testCodeBreak)
-   //test for win state by running cccp, if cccp = 4 win!
-   cccp = testCodeCCCP(testCodeBreak);
-   if (cccp === 4){
-     return console.log("WIN!");
-   }
-   console.log (cccp + " pegs are the correct color and correct position");
-
-   //test inputs with cccp and ccwp
-   ccwp = testCodeCCWP(testCodeBreak);
-   console.log( ccwp + " pegs are the correct color, but wrong positon")
-   //increment round number
-   round ++;
-  }
-  console.log ("sorry, you lost " + round);
- }
-
-
-//nested loop visualization
-// var nestedLoop = function() {
-//   for (i=0; i<4; i++){
-//     for(j=0; j<4; j++){
-//       //both start at 0, j loops first, then i increments
-//       console.log ("the value of i is "+ i +
-//       " the value of j is " + j);
-// }}};
-
-
-//an object for the colors?
-//do I even need this?
-//nothing is happening to these...
-//or does it?
-
-//need to draw out the flow on very very large paper
-
-
 //////////////////jQuery/////////////////////////
+//global-ish variables
+var currentColor="";
+var playArray =[];
 
-$("#start").click(function(event) {
+//hide submit buttons on load will appear when start button is pushed
+var submits =$('.submit');
+submits.hide();
 
-      alert("button works!");
-      playGame();
+//click on peg box to choose color
+var box = $('.select');
+box.click(function(event){
+  //http://stackoverflow.com/questions/964119/how-to-get-the-class-of-the-clicked-element
+  //console.log ($(this).attr("color"));
+  currentColor =$(this).attr("color");
+  //console.log(currentColor);
+});
+
+//click on board to add color
+var playable =$('.playable');
+playable.click(function(event){
+  //console.log( $(this) );
+  var addColor =$(this).addClass(currentColor);
+});
+
+//click submit to submit colors
+//only works on first row right now
+var submit =$('.submit');
+submit.click(function(){
+  console.log( $(this)) ;
+  var getPlays = $('td div');
+  //console.log(getPlays);
+  getPlays.removeClass("playable");
+  for (z=4; z<8;z++){
+  getOne = getPlays.eq(z);
+  getColor = getOne.attr('class');
+  //console.log(getColor.length);
+  //console.log(getPlays.eq(4).getClass("color"));
+  console.log(getOne.attr('class'));
+  playArray.push(getColor);
+  }
+
+  console.log(playArray);
+  //instead of console log- change the text in cccp and ccwp
+  var cccpShow= $('.cccp');
+  var cccpValue = testCodeCCCP(playArray);
+  cccpShow.text(cccpValue);
+  //console.log(testCodeCCCP(playArray));
+  var ccwpShow =$('.ccwp');
+  var ccwpValue = testCodeCCWP(playArray);
+  ccwpShow.text(ccwpValue);
+  //console.log(testCodeCCWP(playArray));
+  //console.log(codeMaker());
+  if (cccpValue===4){
+    alert('you won!')
+    var displayCodeToBreak = $('.codeToBreak')
+    displayCodeToBreak.fadeIn('slow');
+    var submits =$('.submit');
+    submits.hide();
+  }
 
 });
 
 
-//start game
-//allow user to enter name (this is mostly for 2 player game)
-//computer chooses an array
+
+
+
+//var board = $("['tr '['div']")
+//WORKS DO NOT TOUCH
+$("#start").click(function(event) {
+
+      //alert("button works!");
+      codeMaker();
+      var displayCodeToBreak = $('.codeToBreak');
+      for (var i= 0; i < 4; i ++ ) {
+         displayCodeToBreak.eq(i).addClass(codeToBreak[i]);
+      }
+      var submits =$('.submit');
+      submits.show();
+      //remove comment when not testing
+      displayCodeToBreak.hide();
+});
+
+//WORKS DO NOT TOUCH
+$("#give-up").click(function(event) {
+//  alert ("clicked");
+  var displayCodeToBreak = $('.codeToBreak')
+  displayCodeToBreak.fadeIn('slow');
+  var submits =$('.submit');
+  submits.hide();
+  });
+
+// //Build the board - works, except for submit and playable??
+// $( document ).ready(function() {
+//   // Handler for .load() called.
+//   console.log ('loaded!');
+// var table = $('table').addClass('doIT');
+// var tbody = $('<tbody>');
+// //table.append(tbody);
+// for (var i=1; i<=10; i++){
+// var row =$('<tr>').attr('id',i)
+// table.append(row);
+// //tbody.append(row);
+//   for (var j=0; j<8; j++){
+//     if (j===0){
+//       var cell = $('<td>').attr('round', i).addClass('cccp')
+//       row.append(cell);
+//       cell.append('cccp');
+//     } else if (j===1){
+//       var cell = $('<td>').attr('round', i).addClass('ccwp')
+//       row.append(cell);
+//       cell.append('ccwp');
+//     } else if (j===6){
+//       var cell = $('<td>')
+//       var div = $('<div>').attr('round', i).addClass('submit');
+//       row.append(cell);
+//       cell.append(div);
+//       div.append('submit');
+//     }
+//     else if (j===7){
+//       var cell = $('<td>');
+//       row.append(cell);
+//     }
+//     else{
+// var cell = $('<td>')
+// var div = $('<div>').attr('round', i);//.addClass("playable");
+// row.append(cell);
+// cell.append(div);
+// }
+// }};})
+
+
+
+//allow user to enter name (this is mostly for 2 player game) - add later
+//computer chooses an array via codeMaker(), which is currently called in playGame()
 
 //The folowing step should serve as a template for other gameplay...maybe?
+
+
+// START HERE:
+//access a div
+//change the color
+
+
 //display the colors in the divs
 //those divs stay hidden
 ///but go in the computer row
@@ -195,21 +168,6 @@ $("#start").click(function(event) {
 //each play goes to an array
 //once each play is in the array
 
-//wondering how to put the pegs in each positon of the array to be compared
-//should it just be left to right -the end?
-//that might be the way it has to start
-
-//otherwise create if elses (or switch?) to determine placement of postion in array
-//by using splice????
-//maybe the array has to be not empty but full of nulls? and replace the position???
-
-//wondering
-//make the array 5 long and the 5th thing is a submit of some sort
-//check the array for the submit if...submit true then do next stuff???
-//pop that submit off before comparison
-
-////////GOAL: get an array to be properly compared to computer play///////
-//how to create the comparision between clicks array to computer array
 
 ////////GOAL: update cccp and ccwp divs//////////
 //self explainitory, there will be values and they need to go in the divs
