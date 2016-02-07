@@ -15,7 +15,7 @@ body {
 
 #left {
   float: left;
-  width:245px;
+  width:210px;
   background-color:#f8FEFF;
   height: 593px;
   padding-right: 20px;
@@ -25,7 +25,7 @@ body {
 
 #center {
   float:left;
-  width: 490px;
+  width: 560px;
   display: inline-block; width: 33%;
   background-color:#b2bfbf;
   padding-right: 20px;
@@ -37,7 +37,7 @@ body {
 
 #right {
   float: left;
-  width:245px;
+  width:210px;
   background-color: #f8FEFF;
   height: 593px;
   padding-right: 20px;
@@ -67,16 +67,20 @@ button {
 h2 {
   font-size: 0.8em;
   background-color:#b2bfbf;
-  margin-top:100px;
+  margin-top:50px;
   max-width: 150px;
   padding: 10px;
   border-radius:10px;
+}
+
+p {
+  text-align: justify;
 }
 /*****************************************************
 * Game Board                                         *
 ******************************************************/
 td {
-  padding: 15px;
+  padding: 8px;
   border:none;
 }
 
@@ -86,12 +90,19 @@ td {
 }
 
 table {
+  table-layout:fixed;
   margin: -2px 0px 10px -8px;
+  border: 1px solid #e7feff;
 }
 
 tr {
   border: 1px solid #e7feff;
   border-radius:50%;
+}
+
+td {
+  height: 25px;
+  width: 150px;
 }
 
 tr div {
@@ -102,20 +113,28 @@ tr div {
   border-radius: 100%;
 }
 tr div:hover {
-  background-color:white;
+  background-color:black;
 }
 
-#ccwp {
+.ccwp {
   color:white;
 }
+#ccwp{
+  color:white;
+}
+
+.cccp {
+
+}
+
 #peg-box{
-  margin-left:50px;
-  margin-right:50px;
+  margin-left: 50px;
+  margin-right: 50px;
   border: 1px solid black;
   background-color: #718589;
   padding-bottom: 10px;
   margin-top: 50px;
-  border-radius:20px;
+  border-radius: 20px;
 }
 
 #peg-box div {
@@ -124,39 +143,63 @@ tr div:hover {
   height:20px;
   border-radius: 100%;
   margin-top: 20px;
-  margin-left: 59px;
+  margin-left: 41px;
 }
-/*#peg-box div:hover {
+
+.select:hover {
    background-color:white;
+}
+
+.submit {
+  background-color:#718589;
+  color:white;
+  font-size: 0.4em;
+  padding:2px 0px;
+  margin: 1px -10px 1px -1px;
+  border-radius:100px;
+  min-width:50px;
+  text-align:center;
+
+}
+/*#submit {
+  background-color:#718589;
+  color:white;
+  font-size: 0.4em;
+  padding:2px 0px;
+  margin: 1px -10px 1px -1px;
+  border-radius:100px;
+  min-width:50px;
+  text-align:center;
+
 }*/
 /*****************************************************
 * Pegs                                               *
 ******************************************************/
 
-#red {
-    background-color: #ff3737;
+.red {
+    background-color: #ff6363;
 }
 
-#orange {
-  background-color: #ff9337;
+.orange {
+  background-color: #ff9347;
 }
 
-#yellow {
+.yellow {
   background-color: #fff169;
 }
 
-#green {
+.green {
   background-color: #4fbf8f;
 }
 
-#blue {
-  background-color: #6de3ff ;
+.blue {
+  background-color: #0f4da8 ;
 }
 
-#violet {
+.violet {
    background-color: #91689f ;
 }
 
-#blank{
+.blank{
   background-color: #1d292c ;
 }

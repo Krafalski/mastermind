@@ -47,8 +47,9 @@
 
 
  ##### February 5, 2016 : Friday
-  - class
+  - classe✅
   - work on js (should be finishing the main/most important/MVP - minimum viable product)
+<<<<<<< HEAD
   - weird problem with win state, probably scoping, need to iron out
   - work on html css - finish bare bones and make it not extremely painful to look at
   - start working on jQuery - html js interaction
@@ -56,18 +57,42 @@
   - see if today is the day to finally make sure things line up with style guide
   - update issues that align with user stories on github
   - update this schedule
+=======
+  - weird problem with win state, probably scoping, need to iron oute✅
+  - game is somewhat playable in console ✅
+  - work on html css - finish bare bones and make it not extremely painful to look at (did this Thursday night)✅
+  - start working on jQuery - html js interaction -> ended up studying jquery but did not get any done ✅
+  - see if today is the day to finally make sure things line up with style guide🔀 not going to happen. Too many other things need to get done
+  - update issues that align with user stories on github🔀
+  - update this schedule🔀
+  - getting updated on Saturday...had a really really bad day with jQuery and not making progress
+>>>>>>> friday
 
 
  ##### February 6, 2016 : Saturday
-  - study jQuery and test some stuff out then try to apply it
-  - hard to gauge where project will be by this day ...leave lots of time for whatever, check to see if anyone is going to GA to work together
-  - update issues that align with user stories on github
-  - update this schedule
+  - study jQuery and test some stuff out then try to apply it✅
+  - hard to gauge where project will be by this day ...leave lots of time for whatever, check to see if anyone is going to GA to work together - doesn't seem like anyone is meeting up✅
+  - can start game and play one round - but must be done in perfect order and cannot click on stuff more than once ✅
+  - tried to make board in js...mostly there, but some issues must switch gears to work on other stuff
+  - update issues that align with user stories on github🔀 nothing even close to being resolved...
+  - update this schedule✅
 
 ##### February 7, 2016 : Sunday
  - stop coding at 8pm and submit project
-  - hopefully finishing and polishing! (or locking self in bathroom and crying until I pass out from exhaustion )
+  - hopefully finishing and polishing! (or locking self in bathroom and crying until I pass out from exhaustion ) looks like the latter
   - update issues that align with user stories on github
+
+  -realistic goals:
+    - study jQuery
+    - see if I can activate one row and deactivate it
+    - figure out how to use git hub properly
+
+  - pure fantasy
+    - get a chain of each row becoming playable and then not playable
+    - fix the jQuery to select jQuery collections to draw out clicked plays on further rounds
+    - invoke win state if win happens
+    - invoke lose state after ten rounds
+    - allow for updating the pegs to be played and have them still work 
 
 
 
