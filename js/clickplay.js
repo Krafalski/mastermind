@@ -57,44 +57,59 @@ $("#give-up").click(function(event) {
   //only works on first row right now
 
   function checkPlay(roundNumber){
-  // var roundSelect = "." + roundNumber;
+  console.log('I am totally in here dude')
   console.log(roundNumber);
+  var jQueryArrayColorGrabStart = (roundNumber*4)+(roundNumber-1);
+  var jQuearyArrayColorGrabEnd = jQueryArrayColorGrabStart+4;
   var submit =$('.submit');
   submit.click(function(){
     console.log( $(this)) ;
+    submit.hide();
     var getPlays = $('td div');
     getPlays.removeClass("playable").unbind('click');
-    for (z = 4; z < 8; z++){
+    for (z = jQueryArrayColorGrabStart; z < jQuearyArrayColorGrabEnd; z++){
     getOne = getPlays.eq(z);
     getColor = getOne.attr('class');
     console.log(getOne.attr('class'));
     playArray.push(getColor);
     }
-
+    // var roundClass = '#'+roundNumber;
+    // console.log(roundClass)
     console.log(playArray);
-    var cccpShow= $('.roundNumber.cccp')
+    var cccpShow= $('.roundClass.cccp');
     var cccpValue = testCodeCCCP(playArray);
-    cccpShow.text(cccpValue);
-    var ccwpShow =$('.roundNumber.ccwp');
+    cccpShow.text(cccpValue).removeClass('roundClass');
+    var ccwpShow =$('.roundClass.ccwp');
     var ccwpValue = testCodeCCWP(playArray);
-    ccwpShow.text(ccwpValue);
+    ccwpShow.text(ccwpValue).removeClass('roundClass');
     if (cccpValue===4){
       alert('you won!')
       var displayCodeToBreak = $('.codeToBreak')
       displayCodeToBreak.fadeIn('slow');
       var submits =$('.submit');
       submits.hide();
+      return;
+    } else if (roundNumber > 11){
+      alert ('you lost');
+      var displayCodeToBreak = $('.codeToBreak')
+      displayCodeToBreak.fadeIn('slow');
+      var submits =$('.submit');
+      // submits.hide();
+      return;
+    } else {
+      roundNumber = roundNumber + 1;
+      playArray =[];
+      playRound(roundNumber);
     }
-
   });
 }
 
   function playRound(roundNumber) {
     var roundNumber = roundNumber;
-    var roundID = '#'+roundNumber;
-    console.log(roundID);
-    var $playableRow = $(roundID);
-    $playableRow.children().addClass('roundNumber');
+    var roundClass = '#'+roundNumber;
+    console.log(roundClass);
+    var $playableRow = $(roundClass);
+    $playableRow.children().addClass('roundClass');
     $playableRow.children().children().addClass('playable');
 
     var $submitButton =$('.playable.submit');
@@ -107,5 +122,6 @@ $("#give-up").click(function(event) {
     });
 
   $submitButton.show();
+  checkPlay(roundNumber);
 
   }
