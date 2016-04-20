@@ -1,4 +1,4 @@
-//alert('game logic linked!');
+// alert('game logic linked!');
 
 
 //game in console almost works need to fix it//
