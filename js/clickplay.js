@@ -16,18 +16,10 @@ $("#start").click(function(event) {
       for (var i= 0; i < 4; i ++ ) {
          displayCodeToBreak.eq(i).addClass(codeToBreak[i]);
       }
-      var firstRound = $('#1');
-      firstRound.children().children().addClass('playable');
-      var playable =$('.playable');
-      playable.click(function(event){
-        //console.log( $(this) );
-        var clearColors = $(this).removeClass('red yellow orange green blue purple')
-        var addColor =$(this).addClass(currentColor);
-      });
-      var submit1 =$('.playable.submit');
-      submit1.show();
       //remove comment when not testing
       displayCodeToBreak.hide();
+      playRound();
+
 });
 
 //WORKS DO NOT TOUCH
@@ -66,7 +58,7 @@ $("#give-up").click(function(event) {
     console.log( $(this)) ;
     var getPlays = $('td div');
     getPlays.removeClass("playable");
-    for (z=4; z<8;z++){
+    for (z = 4; z < 8; z++){
     getOne = getPlays.eq(z);
     getColor = getOne.attr('class');
     console.log(getOne.attr('class'));
@@ -89,3 +81,24 @@ $("#give-up").click(function(event) {
     }
 
   });
+
+  function playRound() {
+    var roundNumber = 1;
+    var roundID = '#'+roundNumber;
+    console.log(roundID);
+    var $playableRow = $(roundID);
+    $playableRow.children().children().addClass('playable');
+    var $submitButton =$('.playable.submit');
+    $submitButton.removeClass('playable red orange yellow green blue purple');
+
+
+    var playable =$('.playable');
+    playable.click(function(event){
+      //console.log( $(this) );
+      var clearColors = $(this).removeClass('red yellow orange green blue purple')
+      var addColor =$(this).addClass(currentColor);
+    });
+
+  $submitButton.show();
+
+  }
