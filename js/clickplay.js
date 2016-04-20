@@ -18,7 +18,9 @@ $("#start").click(function(event) {
       }
       //remove comment when not testing
       displayCodeToBreak.hide();
-      playRound();
+      var roundNumber =1;
+      playRound(roundNumber);
+      checkPlay(roundNumber);
 
 });
 
@@ -53,11 +55,15 @@ $("#give-up").click(function(event) {
 
   //click submit to submit colors
   //only works on first row right now
+
+  function checkPlay(roundNumber){
+  // var roundSelect = "." + roundNumber;
+  console.log(roundNumber);
   var submit =$('.submit');
   submit.click(function(){
     console.log( $(this)) ;
     var getPlays = $('td div');
-    getPlays.removeClass("playable");
+    getPlays.removeClass("playable").unbind('click');
     for (z = 4; z < 8; z++){
     getOne = getPlays.eq(z);
     getColor = getOne.attr('class');
@@ -66,10 +72,10 @@ $("#give-up").click(function(event) {
     }
 
     console.log(playArray);
-    var cccpShow= $('.cccp');
+    var cccpShow= $('.roundNumber.cccp')
     var cccpValue = testCodeCCCP(playArray);
     cccpShow.text(cccpValue);
-    var ccwpShow =$('.ccwp');
+    var ccwpShow =$('.roundNumber.ccwp');
     var ccwpValue = testCodeCCWP(playArray);
     ccwpShow.text(ccwpValue);
     if (cccpValue===4){
@@ -81,13 +87,16 @@ $("#give-up").click(function(event) {
     }
 
   });
+}
 
-  function playRound() {
-    var roundNumber = 1;
+  function playRound(roundNumber) {
+    var roundNumber = roundNumber;
     var roundID = '#'+roundNumber;
     console.log(roundID);
     var $playableRow = $(roundID);
+    $playableRow.children().addClass('roundNumber');
     $playableRow.children().children().addClass('playable');
+
     var $submitButton =$('.playable.submit');
     $submitButton.removeClass('playable red orange yellow green blue purple');
     var playable =$('.playable');
