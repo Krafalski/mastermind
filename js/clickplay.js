@@ -3,19 +3,29 @@
 //global-ish variables
 var currentColor="";
 var playArray =[];
+//hide submit buttons on load will appear when start button is pushed
+var submits =$('.submit');
+submits.hide();
 
 //WORKS DO NOT TOUCH
 //Start Button, starts game
 $("#start").click(function(event) {
 
-      // alert("button works!");
       codeMaker();
       var displayCodeToBreak = $('.codeToBreak');
       for (var i= 0; i < 4; i ++ ) {
          displayCodeToBreak.eq(i).addClass(codeToBreak[i]);
       }
-      var submits =$('.submit');
-      submits.show();
+      var firstRound = $('#1');
+      firstRound.children().children().addClass('playable');
+      var playable =$('.playable');
+      playable.click(function(event){
+        //console.log( $(this) );
+        var clearColors = $(this).removeClass('red yellow orange green blue purple')
+        var addColor =$(this).addClass(currentColor);
+      });
+      var submit1 =$('.playable.submit');
+      submit1.show();
       //remove comment when not testing
       displayCodeToBreak.hide();
 });
