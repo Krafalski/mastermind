@@ -90,8 +90,6 @@ $("#give-up").click(function(event) {
     $playableRow.children().children().addClass('playable');
     var $submitButton =$('.playable.submit');
     $submitButton.removeClass('playable red orange yellow green blue purple');
-
-
     var playable =$('.playable');
     playable.click(function(event){
       //console.log( $(this) );
