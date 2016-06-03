@@ -113,7 +113,12 @@ tr div {
   border-radius: 100%;
 }
 tr div:hover {
-  background-color:black;
+  /*opacity: 0.9;*/
+}
+
+tr div:active {
+
+  opacity: 0.1;
 }
 
 .ccwp {
