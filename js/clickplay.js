@@ -1,4 +1,4 @@
-//adding something to try to get github pages to update
+
 // alert ('clickplay!')
 
 //global-ish variables
@@ -42,6 +42,12 @@ $("#give-up").click(function(event) {
     //http://stackoverflow.com/questions/964119/how-to-get-the-class-of-the-clicked-element
     //console.log ($(this).attr("color"));
     currentColor =$(this).attr("color");
+    var clearSelection = box.removeAttr('id','peg-select');
+    $(this).attr('id','peg-select');
+    var container = $('#container');
+    var concatenateStyle = 'url(./images/'+ currentColor +'-peg.png),auto'
+    console.log(concatenateStyle);
+    container.css('cursor', concatenateStyle);
     //console.log(currentColor);
   });
 
