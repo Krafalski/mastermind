@@ -11,14 +11,16 @@ submits.hide();
 //WORKS DO NOT TOUCH
 //Start Button, starts game
 $("#start").click(function(event) {
-
+    //boardmaker()
+    //resetall()
+    alert (roundNumber)
       codeMaker();
       var displayCodeToBreak = $('.codeToBreak');
       for (var i= 0; i < 4; i ++ ) {
          displayCodeToBreak.eq(i).addClass(codeToBreak[i]);
       }
       //remove comment when not testing
-      displayCodeToBreak.hide();
+      // displayCodeToBreak.hide();
       var roundNumber =1;
       playRound(roundNumber);
       checkPlay(roundNumber);
@@ -46,7 +48,7 @@ $("#give-up").click(function(event) {
     $(this).attr('id','peg-select');
     var container = $('#container');
     var concatenateStyle = 'url(./images/'+ currentColor +'-peg.png),auto'
-    console.log(concatenateStyle);
+    // console.log(concatenateStyle);
     container.css('cursor', concatenateStyle);
     //console.log(currentColor);
   });
@@ -64,25 +66,24 @@ $("#give-up").click(function(event) {
   //only works on first row right now
 
   function checkPlay(roundNumber){
-  console.log('I am totally in here dude')
-  console.log(roundNumber);
+  // console.log('this is the round number' ,roundNumber);
   var jQueryArrayColorGrabStart = (roundNumber*4)+(roundNumber-1);
   var jQuearyArrayColorGrabEnd = jQueryArrayColorGrabStart+4;
   var submit =$('.submit');
   submit.click(function(){
-    console.log( $(this)) ;
+    // console.log( $(this)) ;
     submit.hide();
     var getPlays = $('td div');
     getPlays.removeClass("playable").unbind('click');
     for (z = jQueryArrayColorGrabStart; z < jQuearyArrayColorGrabEnd; z++){
     getOne = getPlays.eq(z);
     getColor = getOne.attr('class');
-    console.log(getOne.attr('class'));
+    // console.log(getOne.attr('class'));
     playArray.push(getColor);
     }
     // var roundClass = '#'+roundNumber;
     // console.log(roundClass)
-    console.log(playArray);
+    // console.log(playArray);
     var cccpShow= $('.roundClass.cccp');
     var cccpValue = testCodeCCCP(playArray);
     cccpShow.text(cccpValue).removeClass('roundClass');
@@ -96,8 +97,8 @@ $("#give-up").click(function(event) {
       var submits =$('.submit');
       submits.hide();
       return;
-    } else if (roundNumber > 11){
-      alert ('you lost');
+    } else if (roundNumber > 9){
+      alert('you lost');
       var displayCodeToBreak = $('.codeToBreak')
       displayCodeToBreak.fadeIn('slow');
       var submits =$('.submit');
@@ -114,7 +115,7 @@ $("#give-up").click(function(event) {
   function playRound(roundNumber) {
     var roundNumber = roundNumber;
     var roundClass = '#'+roundNumber;
-    console.log(roundClass);
+    // console.log(roundClass);
     var $playableRow = $(roundClass);
     $playableRow.children().addClass('roundClass');
     $playableRow.children().children().addClass('playable');
