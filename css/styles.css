@@ -113,7 +113,12 @@ tr div {
   border-radius: 100%;
 }
 tr div:hover {
-  background-color:black;
+  /*opacity: 0.9;*/
+}
+
+tr div:active {
+
+  opacity: 0.1;
 }
 
 .ccwp {
@@ -144,6 +149,8 @@ tr div:hover {
   border-radius: 100%;
   margin-top: 20px;
   margin-left: 41px;
+  /*cursor: pointer;*/
+   cursor:pointer;
 }
 
 .select:hover {
@@ -178,7 +185,13 @@ tr div:hover {
 
 .red {
     background-color: #ff6363;
+
 }
+
+.red:hover {
+ cursor:url(../images/clear-day.png), auto;
+}
+
 
 .orange {
   background-color: #ff9347;
@@ -202,4 +215,47 @@ tr div:hover {
 
 .blank{
   background-color: #1d292c ;
+}
+
+#peg-select.red {
+    background-color: #f00;
+    border-color: white;
+    border-style: dotted;
+
+}
+
+#peg-select.orange {
+  background-color: #ff9400;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.yellow {
+  background-color: #ff0;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.green {
+  background-color: #66ff00;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.blue {
+  background-color: #00f;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.violet {
+  background-color: #f0f;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.blank {
+  background-color: #f00;
+  border-color: white;
+  border-style: dotted;
 }
