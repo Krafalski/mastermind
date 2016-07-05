@@ -13,14 +13,14 @@ submits.hide();
 $("#start").click(function(event) {
     //boardmaker()
     //resetall()
-    alert (roundNumber)
+
       codeMaker();
       var displayCodeToBreak = $('.codeToBreak');
       for (var i= 0; i < 4; i ++ ) {
          displayCodeToBreak.eq(i).addClass(codeToBreak[i]);
       }
       //remove comment when not testing
-      // displayCodeToBreak.hide();
+      displayCodeToBreak.hide();
       var roundNumber =1;
       playRound(roundNumber);
       checkPlay(roundNumber);
