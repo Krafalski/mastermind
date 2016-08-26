@@ -37,8 +37,11 @@ var codeMaker = function (){
   //console.log(colorChoice);
   codeToBreak.push(colors[colorChoice]);
   //console.log(colors[colorChoice])
+  //for logic problem solving
+  // codeToBreak = ["green","green","yellow","green"]
   }
- //console.log(codeToBreak); uncomment if need to see codeToBreak for testing
+  // uncomment if need to see codeToBreak for testing
+ // console.log(codeToBreak);
 };
 
 //default testCodeBreak - for testing
@@ -51,16 +54,19 @@ var testCodeCCCP = function(testCodeBreak){
    var cccp = 0;
    //console.log(testCodeBreak + " this is what is getting passed into the function ")
    var testIt = testCodeBreak;
-   //console.log (testIt + " value of testIt")
+  //  console.log (testIt + " value of testIt")
    for (var q = 0; q < 4; q++){
      //change default testCodeBreak to real testCodeBreak later
     //  console.log (testCodeBreak[q] +
     //  " testCodeBreak "+ codeToBreak[q] + " code to break");
      if ( testIt[q] === codeToBreak[q]){
+      //  console.log ('this is testIt', testIt[q], 'this is codeToBreak[q]', codeToBreak[q]);
        cccp=cccp+1;
      }
+    //  else { console.log ('ELSE this is testIt', testIt[q], 'this is codeToBreak[q]', codeToBreak[q]); }
    }
    //console.log ( cccp + " correct color, correct position");
+  //  console.log ('this is cccp, separate from ccwp process', cccp)
    return cccp;
 }
 
@@ -81,10 +87,16 @@ var testCodeCCWP = function (testCodeBreak){
 
   var removed=[];
 //remove CCCPs
- for (var k =0; k< checkFor.length; k++){
-   if (checkFor[k]===checkAgainst[k]){
+ for (var k =0; k < checkFor.length; k++){
+   if (checkFor[k] === checkAgainst[k]){
      removed = checkFor.splice(k,1);
+    //  console.log('removed checkFor', removed ,k );
      removed = checkAgainst.splice(k,1);
+    //  console.log('removed checkAgainst', removed ,k);
+    //  console.log('checkFor length is now' , checkFor.length)
+    //  console.log ('this is checkFor',checkFor);
+    //  console.log ('this is checkAgainst', checkAgainst);
+     k--;
    }
  }
 //test ccwp now:
@@ -118,30 +130,15 @@ function holdMe (){
    //for testing:
    console.log(codeToBreak);
    //check round number - must be less than 10 else game is over.
-   while (round < 2 || cccp === 4){ //is this supposed to be !==4 ????
+   while (round < 2 || cccp !== 4){ //is this supposed to be !==4 ????
      var cccp=0;
      var ccwp=0;
-     // ask for input
-   //input version one- type array perfectly - returns it as a string...try version two
-   //var testCodeBreak = prompt ("enter your color array") - does not work in console
-   //input version two - enter one string at a time for a max of four to test - this will become clearer if I need this when I get to jQuery
-   //needs to reset every turn
-   var testCodeBreak = [];
+     var testCodeBreak = [];
 //from jQuery
   for (var i=0; i<4; i++){
     testcodeBreak.push(playArray);
     console.log(testCodeBreak + "this is being passed from jQuery")
   }
-
-
-//for console play
-  //  while (testCodeBreak.length < 4){
-  //    var grabInput = "";
-  //    grabInput = prompt("give me a color: red, orange, yellow, green, blue, or violet");
-  //    if (grabInput ===null) {return "you quit"}
-  //    testCodeBreak.push(grabInput);
-  //  }
-  //  console.log (testCodeBreak)
 
 
    //test for win state by running cccp, if cccp = 4 win!

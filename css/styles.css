@@ -149,6 +149,8 @@ tr div:active {
   border-radius: 100%;
   margin-top: 20px;
   margin-left: 41px;
+  /*cursor: pointer;*/
+   cursor:pointer;
 }
 
 .select:hover {
@@ -164,6 +166,7 @@ tr div:active {
   border-radius:100px;
   min-width:50px;
   text-align:center;
+  cursor:pointer;
 
 }
 /*#submit {
@@ -183,7 +186,13 @@ tr div:active {
 
 .red {
     background-color: #ff6363;
+
 }
+
+.red:hover {
+ cursor:url(../images/clear-day.png), auto;
+}
+
 
 .orange {
   background-color: #ff9347;
@@ -207,4 +216,47 @@ tr div:active {
 
 .blank{
   background-color: #1d292c ;
+}
+
+#peg-select.red {
+    background-color: #f00;
+    border-color: white;
+    border-style: dotted;
+
+}
+
+#peg-select.orange {
+  background-color: #ff9400;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.yellow {
+  background-color: #ff0;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.green {
+  background-color: #66ff00;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.blue {
+  background-color: #00f;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.violet {
+  background-color: #f0f;
+  border-color: white;
+  border-style: dotted;
+}
+
+#peg-select.blank {
+  background-color: #f00;
+  border-color: white;
+  border-style: dotted;
 }
