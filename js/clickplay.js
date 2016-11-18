@@ -91,14 +91,14 @@ $("#give-up").click(function(event) {
     var ccwpValue = testCodeCCWP(playArray);
     ccwpShow.text(ccwpValue).removeClass('roundClass');
     if (cccpValue===4){
-      alert('you won!')
+      swal('you won!')
       var displayCodeToBreak = $('.codeToBreak')
       displayCodeToBreak.fadeIn('slow');
       var submits =$('.submit');
       submits.hide();
       return;
     } else if (roundNumber > 9){
-      alert('you lost');
+      swal('you lost');
       var displayCodeToBreak = $('.codeToBreak')
       displayCodeToBreak.fadeIn('slow');
       var submits =$('.submit');
